@@ -4,24 +4,36 @@ const rl = readline.createInterface({
   output: process.stdout 
 });
 
-rl.question(`What is your name?`, function(name){rl.question(`How old are you?`,function (age){if(age < 15){
+rl.question(`What is your name?`, function(name){rl.question(`How old are you?`,function (age){age = parseInt(age);
+  if(age < 15){
   console.log(`Hello ${name} we do not have the kids and teens option check back later`);
   rl.close();
 }
                                                                               
-  rl.question(`How much cash do you have?`,function(cash){
-      cash < 10
-      console.log(`Hello ${name}, I recommend Pizza Hut`)
-      cash > 100 && cash <250
-        console.log(`Hello ${name}, I recommend Xhi Chinese Restaurant`)
-      cash > 300 && cash <600
-        console.log(`Hello ${name}, I recommend Tianas Deluxe Lounge`)
+  rl.question(`How much cash do you have?`,function(cash){cash = parseInt(cash);
+     let message = '';
+     switch (true) {
+       case (cash < 10):
+      message = `Hello ${name}, I recommend Pizza Hut`;
+       break;
+      case (cash >= 100 && cash <=250):
+        message = `Hello ${name}, I recommend Xhi Chinese Restaurant`;
+       break;
+      case (cash >= 300 && cash <=600):
+        message = `Hello ${name}, I recommend Tianas Deluxe Lounge`;
+       break;
 
-      cash < 600
-        console.log(`Hello ${name}, We do not have any recommendations at the moment`)
-})
-  })
+
+       default:
+        message = `Hello ${name}, We do not have any recommendations at the moment`;
+       break;  
+     }                                                     console.log(message);
     rl.close();
 })
-   ;
-;
+ });
+});
+
+rl.on('close', function(){
+  console.log('\nBYE BYE AMAKA!!!');
+  process.exit(0);
+})
