@@ -6,21 +6,21 @@ const rl = readline.createInterface({
 
 rl.question(`What is your name?`, function(name){rl.question(`How old are you?`,function (age){age = parseInt(age);
   if(age < 15){
-  console.log(`Hello ${name} we do not have the kids and teens option check back later`);
+  console.log(`Hello ${name} we do not have the kids and teens options please check back later`); 
   rl.close();
 }
-                                                                              
+                                                     
   rl.question(`How much cash do you have?`,function(cash){cash = parseInt(cash);
      let message = '';
      switch (true) {
-       case (cash < 10):
-      message = `Hello ${name}, I recommend Pizza Hut`;
+       case (cash <= 10):
+      message = `Hello ${name}, We recommend Pizza Hut`;
        break;
       case (cash >= 100 && cash <=250):
-        message = `Hello ${name}, I recommend Xhi Chinese Restaurant`;
+        message = `Hello ${name}, We recommend Xhi Chinese Restaurant`;
        break;
       case (cash >= 300 && cash <=600):
-        message = `Hello ${name}, I recommend Tianas Deluxe Lounge`;
+        message = `Hello ${name}, We recommend Tianas Deluxe Lounge`;
        break;
 
 
@@ -34,6 +34,5 @@ rl.question(`What is your name?`, function(name){rl.question(`How old are you?`,
 });
 
 rl.on('close', function(){
-  console.log('\nBYE BYE AMAKA!!!');
-  process.exit(0);
+  console.log('\nThank You for Your Patronage!!!');
 })
