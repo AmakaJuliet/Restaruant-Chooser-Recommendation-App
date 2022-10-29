@@ -8,7 +8,7 @@ rl.question(`What is your name?`, function(name){rl.question(`How old are you?`,
   if(age < 15){
   console.log(`Hello ${name} we do not have the kids and teens options please check back later`); 
   rl.close();
-    process.exit(0);
+   process.exit(0);
 }
                                                      
   rl.question(`How much cash do you have?`, function(cash){cash = parseInt(cash);
